@@ -222,6 +222,10 @@ dl_kernel_image () {
 			kernel_repo="LTS54"
 			kernel_selected="true"
 		fi
+		if [ "x${cmd_LTS510_KERNEL}" = "xenable" ] ; then
+			kernel_repo="LTS510"
+			kernel_selected="true"
+		fi
 		if [ "x${cmd_STABLE_KERNEL}" = "xenable" ] && [ "x${kernel_selected}" = "x" ] ; then
 			kernel_repo="STABLE"
 			kernel_selected="true"
@@ -1561,6 +1565,10 @@ while [ ! -z "$1" ] ; do
 		;;
 	--use-lts-5_4-kernel)
 		cmd_LTS54_KERNEL="enable"
+		cmd_kernel_override="enable"
+		;;
+	--use-lts-5_10-kernel)
+		cmd_LTS510_KERNEL="enable"
 		cmd_kernel_override="enable"
 		;;
 	--use-stable-kernel)
